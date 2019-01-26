@@ -602,14 +602,15 @@ BEGIN_RCPP
 END_RCPP
 }
 // libtiledb_array_consolidate
-std::string libtiledb_array_consolidate(XPtr<tiledb::Context> ctx, std::string uri);
-RcppExport SEXP _tiledb_libtiledb_array_consolidate(SEXP ctxSEXP, SEXP uriSEXP) {
+std::string libtiledb_array_consolidate(XPtr<tiledb::Context> ctx, std::string uri, XPtr<tiledb::Config> config);
+RcppExport SEXP _tiledb_libtiledb_array_consolidate(SEXP ctxSEXP, SEXP uriSEXP, SEXP configSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< XPtr<tiledb::Context> >::type ctx(ctxSEXP);
     Rcpp::traits::input_parameter< std::string >::type uri(uriSEXP);
-    rcpp_result_gen = Rcpp::wrap(libtiledb_array_consolidate(ctx, uri));
+    Rcpp::traits::input_parameter< XPtr<tiledb::Config> >::type config(configSEXP);
+    rcpp_result_gen = Rcpp::wrap(libtiledb_array_consolidate(ctx, uri, config));
     return rcpp_result_gen;
 END_RCPP
 }
